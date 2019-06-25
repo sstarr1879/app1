@@ -6,8 +6,13 @@ import pandas as pd
 import numpy as np
 import json
 
-app = Flask(__name__)
+import tablib
+import os
 
+app = Flask(__name__)
+dataset = tablib.Dataset()
+with open(os.path.join(os.path.dirname(__file__),'vgsales.csv')) as f:
+    dataset.csv = f.read()
 
 def create_plot(feature):
     if feature == 'Bar':
@@ -17,17 +22,18 @@ def create_plot(feature):
         df = pd.DataFrame({'x': x, 'y': y}) # creating a sample dataframe
         data = [
             go.Bar(
-                x=df['x'], # assign x as the dataframe column 'x'
-                y=df['y']
+               x=['giraffes', 'orangutans', 'monkeys'],
+            y=[20, 14, 23]
             )
         ]
+
     else:
         N = 1000
         random_x = np.random.randn(N)
         random_y = np.random.randn(N)
 
         # Create a trace
-        data = [go.Scatter(
+        data = [go.Scatter( 
             x = random_x,
             y = random_y,
             mode = 'markers'
@@ -42,7 +48,9 @@ def create_plot(feature):
 def index():
     feature = 'Bar'
     bar = create_plot(feature)
-    return render_template('index.html', plot=bar)
+    data = dataset.html
+    #return dataset.html
+    return render_template('index.html', plot=bar, data=data)
 
 @app.route('/bar', methods=['GET', 'POST'])
 def change_features():
@@ -51,6 +59,8 @@ def change_features():
     graphJSON= create_plot(feature)
 
     return graphJSON
+
+
 
 if __name__ == '__main__':
     app.run()
