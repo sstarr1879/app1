@@ -1,11 +1,7 @@
 from flask import Flask, render_template,request
 import plotly
 import plotly.graph_objs as go
-
-import pandas as pd
-import numpy as np
 import json
-
 import tablib
 import os
 
