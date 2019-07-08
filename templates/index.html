@@ -10,26 +10,43 @@
 <body>
 	{% include "includes/navbar.html" %}
 	<div class="container-fluid" style="margin-top:65px">
-		<div class="chart" id="bargraph">
-			<script>
-			    var graphs = {{plot | safe}};
-			    Plotly.plot('bargraph',graphs,{});
-			 </script>
-		</div>
+		<div class="input-group">
+		  <div class="input-group-prepend">
+		    <label class="input-group-text border-0">Select sales country...</label>
+		  </div>
+		        <select class="custom-select border-0 col-3" id ='first_cat'>
+		        	<option selected>Choose...</option>
+		            <option value="Bar">Sales in North America</option>
+		            <option value="Bar2">Sales in Europe</option>
+		            <option value="Bar3">Sales in Japan</option>
+		            <option value="Bar4">Sales in the rest of the world</option>
+		            <option value="Bar5">Total worldwide sales</option>
+		        </select>
+		    </div>
+			<div class="col-md-12">
+				<div class="chart" id="bargraph">
+					<script>
+					    var graphs = {{plot | safe}};
+					    Plotly.plot('bargraph',graphs,{});
+					 </script>
+				</div>
+			</div>
 		
-		<h2>Table of Video Game Sales</h2>
-		<div class="table-responsive-md">
-			<table class="table">
-				<thead class="thead-dark">
-					<tr>
-						<td>
-							{% block body %}
-						   		{{ data|safe }}
-						   	{% endblock %}  
-						</td>
-					</tr>
-				</thead>
-			</table>
+				<h2>Table of Video Game Sales</h2>
+				<div class="table-responsive-md">
+					<table class="table">
+						<thead class="thead-dark">
+							<tr>
+								<td>
+									{% block body %}
+								   		{{ data|safe }}
+								   	{% endblock %}  
+								</td>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
 		</div>
 	</div>
 
