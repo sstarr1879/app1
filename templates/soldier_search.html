@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Readiness Dashboard</title>
+	<title>Soldier Search</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -10,29 +10,9 @@
 <body>
 	{% include "includes/navbar.html" %}
 	<div class="container-fluid" style="margin-top:65px">
-		<div class="input-group">
-		  <div class="input-group-prepend">
-		    <label class="input-group-text border-0">Select sales country...</label>
-		  </div>
-		        <select class="custom-select border-0 col-3" id ='first_cat'>
-		        	<option selected>Choose...</option>
-		            <option value="Bar">Sales in North America</option>
-		            <option value="Bar2">Sales in Europe</option>
-		            <option value="Bar3">Sales in Japan</option>
-		            <option value="Bar4">Sales in the rest of the world</option>
-		            <option value="Bar5">Total worldwide sales</option>
-		        </select>
-		    </div>
-			<div class="col-md-12">
-				<div class="chart" id="bargraph">
-					<script>
-					    var graphs = {{plot | safe}};
-					    Plotly.plot('bargraph',graphs,{});
-					 </script>
-				</div>
-			</div>
 
-				<h2>Table of Soldier Readiness</h2>
+
+				<h2>Soldier Search</h2>
 				<div class="table-responsive-md">
 					<table class="table">
 						<thead class="thead-dark">
