@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Readiness Dashboard</title>
+	<title>75th IC Overview</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -10,50 +10,36 @@
 <body>
 	{% include "includes/navbar.html" %}
 	<div class="container-fluid" style="margin-top:65px">
-		<div class="input-group">
-		  <div class="input-group-prepend">
-		    <label class="input-group-text border-0">Select sales country...</label>
-		  </div>
-		        <select class="custom-select border-0 col-3" id ='first_cat'>
-		        	<option selected>Choose...</option>
-		            <option value="Bar">Sales in North America</option>
-		            <option value="Bar2">Sales in Europe</option>
-		            <option value="Bar3">Sales in Japan</option>
-		            <option value="Bar4">Sales in the rest of the world</option>
-		            <option value="Bar5">Total worldwide sales</option>
-		        </select>
-		    </div>
-			<div class="col-md-12">
-				<div class="chart" id="bargraph">
-					<script>
-					    var graphs = {{plot | safe}};
-					    Plotly.plot('bargraph',graphs,{});
-					 </script>
-				</div>
-			</div>
-
-				<h2>Table of Soldier Readiness</h2>
-				<div class="table-responsive-md">
-					<table class="table">
-						<thead class="thead-dark">
-							<tr>
-								<td>
-									{% block body %}
-								   		{{ data|safe }}
-								   	{% endblock %}
-								</td>
-							</tr>
-						</thead>
-					</table>
-				</div>
-			</div>
-		</div>
+		<div class=row>
+    <div class="col-md-6" id="graph-0"></div>
+		<div class="col-md-6" id="graph-1"></div>
 	</div>
+		<div class=row>
+    <div class="col-md-6" id="graph-2"></div>
+		<div class="col-md-6" id="graph-3"></div>
+<div class = row>
+		<p> Data Last Updated: 15 March 2020 </p>
 
+	</div>
+			</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 
 	<script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
 	<script src="{{ url_for('static', filename='js/plots.js') }}"></script>
 </body>
+<footer>
+	<script type="text/javascript">
+
+        var graphs = {{graphJSON | safe}};
+        var ids = {{ids | safe}};
+
+        for(var i in graphs) {
+            Plotly.plot(ids[i], // the ID of the div, created above
+                        graphs[i].data,
+                        graphs[i].layout || {});
+        }
+
+    </script>
+	</footer>
 </html>
