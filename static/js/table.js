@@ -1,4 +1,4 @@
-$(document).ready(function () {
-  $('#soldier_table').DataTable();
-  $('.dataTables_length').addClass('bs-select');
-});
+$(document).ready(function() {
+$('.soldier_table').dataTable( {
+searching: true
+} );

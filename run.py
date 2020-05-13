@@ -301,6 +301,7 @@ def soldier_search():
 def change_features():
     feature = request.args['selected']
     graphJSON = create_plot(feature)
+    data = create_data(feature)
     return graphJSON
 
 
