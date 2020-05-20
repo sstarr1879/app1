@@ -25,8 +25,8 @@ def create_plot(feature):
             x=df_sub['Total Readiness Score'],
             name='Total Readiness',
         )]
-    elif feature == 'austin':
-        df_sub = frame.loc[frame['ACTUAL UNIT']=='AUSTIN']
+    elif feature == 'a':
+        df_sub = frame.loc[frame['ACTUAL UNIT']=='A']
         data = [go.Histogram(
             x=df_sub['Total Readiness Score'],
             name='Austin Readiness',
@@ -34,8 +34,8 @@ def create_plot(feature):
                 color='rgb(255,127,14,255)',
             )
         )]
-    elif feature == 'boston':
-        df_sub = frame.loc[frame['ACTUAL UNIT']=='BOSTON']
+    elif feature == 'b':
+        df_sub = frame.loc[frame['ACTUAL UNIT']=='B']
         data = [go.Histogram(
             x=df_sub['Total Readiness Score'],
             name='Boston Readiness',
@@ -43,8 +43,8 @@ def create_plot(feature):
             color='rgb(44,160,44,255)',
         )
     )]
-    elif feature == 'cino':
-        df_sub = frame.loc[frame['ACTUAL UNIT']=='CINO(IAAG)']
+    elif feature == 'c':
+        df_sub = frame.loc[frame['ACTUAL UNIT']=='C']
         data = [go.Histogram(
             x=df_sub['Total Readiness Score'],
             name='Boston Readiness',
@@ -52,8 +52,8 @@ def create_plot(feature):
                 color='rgb(214,39,40,255)',
         )
     )]
-    elif feature == 'hhd':
-        df_sub = frame.loc[frame['ACTUAL UNIT']=='HHD']
+    elif feature == 'd':
+        df_sub = frame.loc[frame['ACTUAL UNIT']=='D']
         data = [go.Histogram(
             x=df_sub['Total Readiness Score'],
             name='Boston Readiness',
@@ -61,8 +61,8 @@ def create_plot(feature):
                 color='rgb(214,39,40,255)',
         )
     )]
-    elif feature == 'support':
-        df_sub = frame.loc[frame['ACTUAL UNIT']=='SUPPORT']
+    elif feature == 'e':
+        df_sub = frame.loc[frame['ACTUAL UNIT']=='E']
         data = [go.Histogram(
             x=df_sub['Total Readiness Score'],
             name='Boston Readiness',
@@ -110,20 +110,20 @@ def create_data(feature):
     if feature == 'Bar':
         df_sub = frame
 
-    elif feature == 'austin':
-        df_sub = frame.loc[frame['ACTUAL UNIT']=='AUSTIN']
+    elif feature == 'a':
+        df_sub = frame.loc[frame['ACTUAL UNIT']=='A']
 
-    elif feature == 'boston':
-        df_sub = frame.loc[frame['ACTUAL UNIT']=='BOSTON']
+    elif feature == 'b':
+        df_sub = frame.loc[frame['ACTUAL UNIT']=='B']
 
-    elif feature == 'cino':
-        df_sub = frame.loc[frame['ACTUAL UNIT']=='CINO(IAAG)']
+    elif feature == 'c':
+        df_sub = frame.loc[frame['ACTUAL UNIT']=='C']
 
-    elif feature == 'hhd':
-        df_sub = frame.loc[frame['ACTUAL UNIT']=='HHD']
+    elif feature == 'd':
+        df_sub = frame.loc[frame['ACTUAL UNIT']=='D']
 
-    elif feature == 'support':
-        df_sub = frame.loc[frame['ACTUAL UNIT']=='SUPPORT']
+    elif feature == 'e':
+        df_sub = frame.loc[frame['ACTUAL UNIT']=='E']
 
     else:
         df_sub = frame
